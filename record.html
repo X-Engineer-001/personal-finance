@@ -10,17 +10,20 @@
   <body>
     事項
     <br>
-    <input type='text' class='form-control' id='recordinputevent'></input>
     <br>
+    <input type='text' class='form-control' id='recordinputevent'></input>
     <button type="button" class="btn btn-default btn-sm btn-block" id='recordrecentevent'>選擇最近的事項</button>
     <br>
     時間
+    <br>
     <br>
     <input type='text' style='width:28%;display:inline' class='form-control' id='recordtimeyear'></input><p width='5%' style='display:inline'>年</p>
     <input type='text' style='width:28%;display:inline' class='form-control' id='recordtimemonth'></input><p width='5%' style='display:inline'>月</p>
     <input type='text' style='width:28%;display:inline' class='form-control' id='recordtimeday'></input><p width='5%' style='display:inline'>日</p>
     <br>
+    <br>
     類別
+    <br>
     <br>
     <select width='100%' id='recordtype'>
       <option value="食">食</option>
@@ -31,10 +34,20 @@
       <option value="樂">樂</option>
     </select>
     <br>
+    <br>
     金額
     <br>
-    <input type='text' width='100%' class='form-control' id='recordmoney'></input>元
+    <br>
+    <input type='text' style='width:28%;display:inline' class='form-control' id='recordmoney'></input><p width='5%' style='display:inline'>元</p>
     <br>
     <button type="button" class="btn btn-success" id='recordcomplete'>確認</button>
+    <script>
+      var fdb = new ForerunnerDB(),
+      var db = fdb.db("DB"),
+      var collection=db.collection("collection");
+      studentCollection.load(function(){
+        
+      });
+    </script>
   </body>
 </html>
