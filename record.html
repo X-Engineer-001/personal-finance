@@ -38,7 +38,7 @@
     金額
     <br>
     <br>
-    <input type='text' style='width:28%;display:inline' class='form-control' id='recordmoney'></input><p style='width:5%;display:inline'>元</p>
+    <input type='text' style='width:95%;display:inline' class='form-control' id='recordmoney'></input><p style='width:5%;display:inline'>元</p>
     <br>
     <br>
     <button type="button" class="btn btn-success" id='recordcomplete'>確認</button>
@@ -47,7 +47,15 @@
       var db = fdb.db("DB"),
       var collection=db.collection("collection");
       studentCollection.load(function(){
-        
+        $("body").on("click","#recordcomplete",function(){
+          collection.insert({event:$('#recordeventinput').val(),time:{year:$('#recordtimeyear').val(),month:$('#recordtimemonth').val(),day:$('#recordtimeyday').val()},type:$('#recordtype').val(),money:$('#recordmoney').val()});
+          $('#recordeventinput').val('');
+          $('#recordtimeyear').val('');
+          $('#recordtimemonth').val('');
+          $('#recordtimeyday').val('');
+          $('#recordtype').val('');
+          $('#recordmoney').val('');
+        })
       });
     </script>
   </body>
