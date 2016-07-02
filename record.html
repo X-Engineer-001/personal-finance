@@ -43,8 +43,8 @@
     <br>
     <button type="button" class="btn btn-success" id='recordcomplete'>確認</button>
     <script>
-      var fdb = new ForerunnerDB(),
-      var db = fdb.db("DB"),
+      var fdb = new ForerunnerDB();
+      var db = fdb.db("DB");
       var collection=db.collection("collection");
       studentCollection.load(function(){
         $("body").on("click","#recordcomplete",function(){
