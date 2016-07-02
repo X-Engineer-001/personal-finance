@@ -46,7 +46,7 @@
       var fdb = new ForerunnerDB();
       var db = fdb.db("DB");
       var collection=db.collection("collection");
-      studentCollection.load(function(){
+      collection.load(function(){
         $("body").on("click","#recordcomplete",function(){
           collection.insert({event:$('#recordeventinput').val(),time:{year:$('#recordtimeyear').val(),month:$('#recordtimemonth').val(),day:$('#recordtimeyday').val()},type:$('#recordtype').val(),money:$('#recordmoney').val()});
           $('#recordeventinput').val('');
