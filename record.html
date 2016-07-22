@@ -12,7 +12,9 @@
     <br>
     <br>
     <input type='text' class='form-control' id='recordeventinput'></input>
-    <button type="button" class="btn btn-default btn-sm btn-block" id='recordeventrecent'>選擇最近的事項</button>
+    <select width='100%' id='recordeventrecent'>
+      <option value="" disabled selected>選擇最近的事項</option>
+    </select>
     <br>
     時間
     <br>
@@ -26,6 +28,7 @@
     <br>
     <br>
     <select width='100%' id='recordtype'>
+      <option value="" disabled selected></option>
       <option value="食">食</option>
       <option value="衣">衣</option>
       <option value="住">住</option>
