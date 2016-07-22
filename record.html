@@ -61,7 +61,7 @@
           var date=new Date();
           $('#recordtimeyear').val(date.getFullYear());
           $('#recordtimemonth').val(date.getMonth()+1);
-          $('#recordtimeday').val(date.getDay());
+          $('#recordtimeday').val(date.getDate());
           collection.save();
         })
       });
