@@ -57,6 +57,13 @@
           $('#recordmoney').val('');
           collection.save();
         })
+        $("body").on("click","#recordtimenow",function(){
+          var date=new Date();
+          $('#recordtimeyear').val(date.getFullYear());
+          $('#recordtimemonth').val(date.getMonth()+1);
+          $('#recordtimeday').val(date.getDay());
+          collection.save();
+        })
       });
     </script>
   </body>
