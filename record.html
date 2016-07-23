@@ -69,9 +69,12 @@
           $('#recordtimeday').val(date.getDate());
           collection.save();
         })
-        $("#recordetype").change(function(){
+        $("body").on("change","#recordtype",function(){
           console.log('test');
         })
+        // $("#recordtype").change(function(){
+          
+        // })
       });
     </script>
   </body>
