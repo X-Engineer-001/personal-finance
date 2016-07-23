@@ -31,7 +31,7 @@
     <br>
     <br>
     <select id='recordtype'>
-      <option value="text" selected></option>
+      <option value="text" id='recordtypetext' selected></option>
       <option value="食">食</option>
       <option value="衣">衣</option>
       <option value="住">住</option>
@@ -73,6 +73,11 @@
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
+          }
+        })
+        $("body").on("click","#recordtype",function(){
+          if($("#recordtype").val()=="text"){
+            $("#recordtypetext").remove();
           }
         })
       });
