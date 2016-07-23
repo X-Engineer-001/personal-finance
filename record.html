@@ -52,10 +52,30 @@
       var db = fdb.db("DB");
       var collection=db.collection("collection");
       collection.load(function(){
-        
         $("#recordeventrecenttext").append("");
         $("body").on("click","#recordcomplete",function(){
-          collection.insert({event:$('#recordeventinput').val(),time:{year:$('#recordtimeyear').val(),month:$('#recordtimemonth').val(),day:$('#recordtimeday').val()},type:$('#recordtype').val(),money:$('#recordmoney').val()});
+          var years=$('#recordtimeyear').val();
+          var months=$('#recordtimemonth').val();
+          var monthsdays;
+          var leap=(years%4==0&&years%100!=0)||(years%400==0&&years%4000!=0);
+          if(months==1){
+            monthsdays=31;
+          }else if(months==2&&leap){
+            monthsdays=60;
+          }else if(months==2){
+            monthsdays=59;
+          }else if(months<=7&&leap){
+            monthsdays=60+(months-(months%2)-2)/2*61+(months%2)*31;
+          }else if(months<=7){
+            monthsdays=59+(months-(months%2)-2)/2*61+(months%2)*31;
+          }else if(leap){
+            monthsdays=213+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
+          }else{
+            monthsdays=212+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
+          }
+          var days=$('#recordtimeday').val();
+          var times=years*365+(years-years%4000)/4000*969+(years%4000-years%400)/400*97+(years%400-years%100)/100*24+(years%100-years%4)/4+monthsdays+days;
+          collection.insert({event:$('#recordeventinput').val(),year:year,month:months,day:days,type:$('#recordtype').val(),money:$('#recordmoney').val(),time:times});
           $('#recordeventinput').val('');
           $('#recordtimeyear').val('');
           $('#recordtimemonth').val('');
