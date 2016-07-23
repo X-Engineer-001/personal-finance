@@ -1,12 +1,22 @@
 <html>
   <head>
     <script src='js/jquery-2.2.4.min.js'></script>
-    <link href='css/bootstrap.min.css' />
+    <link rel="stylesheet" type="text/css" href='css/bootstrap.min.css' />
     <script src='js/bootstrap.min.js'></script>
     <script src='js/fdb-all.min.js'></script>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+    <meta charset="UTF-8">
   </head>
   <body>
-    
+    最近
+    <select id='recent'>
+      <option value='10' selected>10</option>
+      <option value='5'>5</option>
+      <option value='3'>3</option>
+      <option value='1'>1</option>
+    </select>
+    筆資料
+    <button type="button" class="btn btn-default btn-sm" style='width:20%;display:inline' id='recordbutton'>記帳</button>
+    <button type="button" class="btn btn-default btn-sm" style='width:20%;display:inline' id='searchbutton'>查詢</button>
   </body>
 </html>
