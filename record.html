@@ -14,7 +14,7 @@
     <br>
     <input type='text' class='form-control' id='recordeventinput'></input>
     <select id='recordeventrecent'>
-      <option value="" disabled selected>選擇最近的事項</option>
+      <option value="" id='recordeventrecenttext' disabled selected>選擇最近的事項</option>
     </select>
     <br>
     <br>
@@ -69,12 +69,12 @@
           $('#recordtimeday').val(date.getDate());
           collection.save();
         })
-        $("body").on("click","#recordtype",function(){
-          console.log('test');
+        $("body").on("click","#recordeventrecent",function(){
+          if($("#recordeventrecent").val()==""){
+            $("#recordeventrecenttext").remove();
+            console.log($("#recordeventrecent").val());
+          }
         })
-        // $("#recordtype").change(function(){
-          
-        // })
       });
     </script>
   </body>
