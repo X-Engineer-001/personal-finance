@@ -15,7 +15,6 @@
     <input type='text' class='form-control' id='recordeventinput'></input>
     <select id='recordeventrecent'>
       <option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>
-      <option value='test'>test</option>
     </select>
     <br>
     <br>
@@ -53,6 +52,8 @@
       var db = fdb.db("DB");
       var collection=db.collection("collection");
       collection.load(function(){
+        
+        $("#recordeventrecenttext").append("");
         $("body").on("click","#recordcomplete",function(){
           collection.insert({event:$('#recordeventinput').val(),time:{year:$('#recordtimeyear').val(),month:$('#recordtimemonth').val(),day:$('#recordtimeday').val()},type:$('#recordtype').val(),money:$('#recordmoney').val()});
           $('#recordeventinput').val('');
