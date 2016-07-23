@@ -74,7 +74,7 @@
             monthsdays=212+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
           }
           var days=$('#recordtimeday').val();
-          var times=years*365+(years-years%4000)/4000*969+(years%4000-years%400)/400*97+(years%400-years%100)/100*24+(years%100-years%4)/4+monthsdays+days;
+          var times=years*365+(years-years%4000)/4000*969+(years%4000-years%400)/400*97+(years%400-years%100)/100*24+(years%100-years%4)/4+monthsdays+days/1;
           collection.insert({event:$('#recordeventinput').val(),year:years,month:months,day:days,type:$('#recordtype').val(),money:$('#recordmoney').val(),time:times});
           $('#recordeventinput').val('');
           $('#recordtimeyear').val('');
