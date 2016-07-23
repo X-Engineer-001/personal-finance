@@ -14,7 +14,7 @@
     <br>
     <input type='text' class='form-control' id='recordeventinput'></input>
     <select id='recordeventrecent'>
-      <option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>
+      <option value='text' class='recordeventrecenttext' selected>選擇最近的事項</option>
     </select>
     <br>
     <br>
@@ -71,9 +71,9 @@
         })
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
-            $("#recordeventrecenttext").remove();
+            $(".recordeventrecenttext").remove();
           }else if($("#recordeventrecent").val()==null){
-            $("#recordeventrecent").append("<option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>");
+            $("#recordeventrecent").append("<option value='text' class='recordeventrecenttext' selected>選擇最近的事項</option>");
           }
         })
       });
