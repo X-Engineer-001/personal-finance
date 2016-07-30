@@ -82,7 +82,7 @@
           for(var i=0;i<array.length;i++){
             $("tbody").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
           }
-          console.log(collection.find({time:{$gte:timesfrom,$lte:timesto}},{$orderBy:{time:-1}}););
+          console.log(collection.find({time:{$gte:timesfrom,$lte:timesto}},{$orderBy:{time:-1}}));
           console.log(timesfrom);
           console.log(timesto);
         })
