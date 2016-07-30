@@ -45,7 +45,7 @@
         $("tbody *").remove();
         var array=collection.find({},{$orderBy:{time:-1},$limit:$("#recent").val()});
         for(var i=0;i<array.length;i++){
-          $("table").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
+          $("tbody").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
         }
       })
     });
