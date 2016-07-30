@@ -77,6 +77,11 @@
           }
           var daysto=$('#recordtimeday').val();
           var timesto=yearsto*365+(yearsto-yearsto%4000)/4000*969+(yearsto%4000-yearsto%400)/400*97+(yearsto%400-yearsto%100)/100*24+(yearsto%100-yearsto%4)/4+monthsdaysto+daysto/1;
+          $("tbody *").remove();
+          var array=collection.find({time:{$gte:timefrom,$lte:timeto}},{$orderBy:{time:-1}});
+          for(var i=0;i<array.length;i++){
+            $("table").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
+          }
         })
       });
     </script>
