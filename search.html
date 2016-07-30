@@ -54,7 +54,7 @@
           }else{
             monthsdaysfrom=212+(monthsfrom-((monthsfrom-1)%2)-7)/2*61+((monthsfrom-1)%2)*31;
           }
-          var daysfrom=$('#recordtimeday').val();
+          var daysfrom=$('#recordtimedayfrom').val();
           var timesfrom=yearsfrom*365+(yearsfrom-yearsfrom%4000)/4000*969+(yearsfrom%4000-yearsfrom%400)/400*97+(yearsfrom%400-yearsfrom%100)/100*24+(yearsfrom%100-yearsfrom%4)/4+monthsdaysfrom+daysfrom/1;
           var yearsto=$('#searchtimeyearto').val();
           var monthsto=$('#searchtimemonthto').val();
@@ -75,7 +75,7 @@
           }else{
             monthsdaysto=212+(monthsto-((monthsto-1)%2)-7)/2*61+((monthsto-1)%2)*31;
           }
-          var daysto=$('#recordtimeday').val();
+          var daysto=$('#recordtimedayto').val();
           var timesto=yearsto*365+(yearsto-yearsto%4000)/4000*969+(yearsto%4000-yearsto%400)/400*97+(yearsto%400-yearsto%100)/100*24+(yearsto%100-yearsto%4)/4+monthsdaysto+daysto/1;
           $("tbody *").remove();
           var array=collection.find({time:{$gte:timesfrom,$lte:timesto}},{$orderBy:{time:-1}});
