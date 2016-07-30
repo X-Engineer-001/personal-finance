@@ -1,1 +1,24 @@
 
+<html>
+  <head>
+    <script src='js/jquery-2.2.4.min.js'></script>
+    <link rel="stylesheet" type="text/css" href='css/bootstrap.min.css' />
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/fdb-all.min.js'></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <input type='text' style='width:28%;display:inline' class='form-control' id='recordtimeyear'></input><p style='width:5%;display:inline'>年</p>
+    <input type='text' style='width:28%;display:inline' class='form-control' id='recordtimemonth'></input><p style='width:5%;display:inline'>月</p>
+    <input type='text' style='width:28%;display:inline' class='form-control' id='recordtimeday'></input><p style='width:5%;display:inline'>日</p>
+    <script>
+      var fdb = new ForerunnerDB();
+      var db = fdb.db("DB");
+      var collection=db.collection("collection");
+      collection.load(function(){
+        
+      });
+    </script>
+  </body>
+</html>
