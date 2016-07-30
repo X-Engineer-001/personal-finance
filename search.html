@@ -47,7 +47,7 @@
             monthsdaysfrom=59;
           }else if(monthsfrom<=7&&leapfrom){
             monthsdaysfrom=60+(monthsfrom-(monthsfrom%2)-2)/2*61+(monthsfrom%2)*31;
-          }else if(months<=7){
+          }else if(monthsfrom<=7){
             monthsdaysfrom=59+(monthsfrom-(monthsfrom%2)-2)/2*61+(monthsfrom%2)*31;
           }else if(leapfrom){
             monthsdaysfrom=213+(monthsfrom-((monthsfrom-1)%2)-7)/2*61+((monthsfrom-1)%2)*31;
@@ -68,7 +68,7 @@
             monthsdaysto=59;
           }else if(monthsto<=7&&leapto){
             monthsdaysto=60+(monthsto-(monthsto%2)-2)/2*61+(monthsto%2)*31;
-          }else if(months<=7){
+          }else if(monthsto<=7){
             monthsdaysto=59+(monthsto-(monthsto%2)-2)/2*61+(monthsto%2)*31;
           }else if(leapto){
             monthsdaysto=213+(monthsto-((monthsto-1)%2)-7)/2*61+((monthsto-1)%2)*31;
