@@ -9,9 +9,14 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <input type='text' style='width:25%;display:inline' class='form-control' id='recordtimeyear'></input><p style='width:5%;display:inline'>年</p>
-    <input type='text' style='width:25%;display:inline' class='form-control' id='recordtimemonth'></input><p style='width:5%;display:inline'>月</p>
-    <input type='text' style='width:25%;display:inline' class='form-control' id='recordtimeday'></input><p style='width:5%;display:inline'>日</p>
+    <input type='text' style='width:25%;display:inline' class='form-control' id='searchtimeyearfrom'></input><p style='width:5%;display:inline'>年</p>
+    <input type='text' style='width:25%;display:inline' class='form-control' id='searchtimemonthfrom'></input><p style='width:5%;display:inline'>月</p>
+    <input type='text' style='width:25%;display:inline' class='form-control' id='searchtimedayfrom'></input><p style='width:5%;display:inline'>日</p>
+    <a class="btn btn-default btn-sm" href='index.html' style='width:10%;display:inline-block' id='recordbackbutton'>返回</a>
+    <input type='text' style='width:25%;display:inline' class='form-control' id='searchtimeyearto'></input><p style='width:5%;display:inline'>年</p>
+    <input type='text' style='width:25%;display:inline' class='form-control' id='searchtimemonthto'></input><p style='width:5%;display:inline'>月</p>
+    <input type='text' style='width:25%;display:inline' class='form-control' id='searchtimedayto'></input><p style='width:5%;display:inline'>日</p>
+    <a class="btn btn-default btn-sm" href='index.html' style='width:10%;display:inline-block' id='recordbackbutton'>返回</a>
     <script>
       var fdb = new ForerunnerDB();
       var db = fdb.db("DB");
