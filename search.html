@@ -94,8 +94,25 @@
             $("#info").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
           }
           var object={
-            
+            食:0,
+            衣:0,
+            住:0,
+            行:0,
+            育:0,
+            樂:0
           };
+          for(var i=0;i<array.length;i++){
+            var thistype=array[i].type;
+            object[thistype]=object.[thistype]+array[i].money;
+          }
+          var all=object.食+object.衣+object.住+object.行+object.育+object.樂;
+          $("#sum *").remove();
+            $("#sum").append("<tr><td>食</td><td>"+object.食+"</td><td>"+object.食*100/all+"%</td></tr>");
+            $("#sum").append("<tr><td>衣</td><td>"+object.衣+"</td><td>"+object.衣*100/all+"%</td></tr>");
+            $("#sum").append("<tr><td>住</td><td>"+object.住+"</td><td>"+object.住*100/all+"%</td></tr>");
+            $("#sum").append("<tr><td>行</td><td>"+object.行+"</td><td>"+object.行*100/all+"%</td></tr>");
+            $("#sum").append("<tr><td>育</td><td>"+object.育+"</td><td>"+object.育*100/all+"%</td></tr>");
+            $("#sum").append("<tr><td>樂</td><td>"+object.樂+"</td><td>"+object.樂*100/all+"%</td></tr>");
           $('#searchtimeyearfrom').val('');
           $('#searchtimemonthfrom').val('');
           $('#searchtimedayfrom').val('');
