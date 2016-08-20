@@ -107,12 +107,12 @@
           }
           var all=object.食+object.衣+object.住+object.行+object.育+object.樂;
           $("#sum *").remove();
-            $("#sum").append("<tr><td>食</td><td>"+object.食+"</td><td>"+object.食*100/all+"%</td></tr>");
-            $("#sum").append("<tr><td>衣</td><td>"+object.衣+"</td><td>"+object.衣*100/all+"%</td></tr>");
-            $("#sum").append("<tr><td>住</td><td>"+object.住+"</td><td>"+object.住*100/all+"%</td></tr>");
-            $("#sum").append("<tr><td>行</td><td>"+object.行+"</td><td>"+object.行*100/all+"%</td></tr>");
-            $("#sum").append("<tr><td>育</td><td>"+object.育+"</td><td>"+object.育*100/all+"%</td></tr>");
-            $("#sum").append("<tr><td>樂</td><td>"+object.樂+"</td><td>"+object.樂*100/all+"%</td></tr>");
+            $("#sum").append("<tr><td>食</td><td>"+object.食+"</td><td>"+Math.floor(object.食*100/all)+"%</td></tr>");
+            $("#sum").append("<tr><td>衣</td><td>"+object.衣+"</td><td>"+Math.floor(object.衣*100/all)+"%</td></tr>");
+            $("#sum").append("<tr><td>住</td><td>"+object.住+"</td><td>"+Math.floor(object.住*100/all)+"%</td></tr>");
+            $("#sum").append("<tr><td>行</td><td>"+object.行+"</td><td>"+Math.floor(object.行*100/all)+"%</td></tr>");
+            $("#sum").append("<tr><td>育</td><td>"+object.育+"</td><td>"+Math.floor(object.育*100/all)+"%</td></tr>");
+            $("#sum").append("<tr><td>樂</td><td>"+object.樂+"</td><td>"+Math.floor(object.樂*100/all)+"%</td></tr>");
           $('#searchtimeyearfrom').val('');
           $('#searchtimemonthfrom').val('');
           $('#searchtimedayfrom').val('');
