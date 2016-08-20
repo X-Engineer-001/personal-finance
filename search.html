@@ -21,12 +21,23 @@
       <thead>
         <tr>
           <th>類別</th>
+          <th>金額</th>
+          <th>比例</th>
+        </tr>
+      </thead>
+      <tbody id='sum'>
+      </tbody>
+    </table>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>類別</th>
           <th>事項</th>
           <th>時間</th>
           <th>金額</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id='info'>
       </tbody>
     </table>
     <script>
@@ -77,10 +88,10 @@
           }
           var daysto=$('#searchtimedayto').val();
           var timesto=yearsto*365+(yearsto-yearsto%4000)/4000*969+(yearsto%4000-yearsto%400)/400*97+(yearsto%400-yearsto%100)/100*24+(yearsto%100-yearsto%4)/4+monthsdaysto+daysto/1;
-          $("tbody *").remove();
+          $("#info *").remove();
           var array=collection.find({time:{$gte:timesfrom,$lte:timesto}},{$orderBy:{time:-1}});
           for(var i=0;i<array.length;i++){
-            $("tbody").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
+            $("#info").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
           }
           $('#searchtimeyearfrom').val('');
           $('#searchtimemonthfrom').val('');
