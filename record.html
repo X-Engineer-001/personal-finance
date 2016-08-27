@@ -84,7 +84,7 @@
           $('#recordtype').val('');
           $('#recordmoney').val('');
           collection.save();
-          var events=collection.find({$distinct:{event:1}},{$limit:5,$aggregate:"event"});
+          events=collection.find({$distinct:{event:1}},{$limit:5,$aggregate:"event"});
         })
         $("body").on("click","#recordtimenow",function(){
           var date=new Date();
@@ -106,6 +106,7 @@
         $("body").on("change","#recordeventrecent",function(){
           var event=$('recordeventrecent').val();
           $('#recordeventinput').val(event);
+          console.log('changed');
         })
         $("body").on("click","#recordtype",function(){
           if($("#recordtype").val()=="text"){
