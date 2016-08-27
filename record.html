@@ -84,6 +84,7 @@
           $('#recordtype').val('');
           $('#recordmoney').val('');
           collection.save();
+          var events=collection.find({$distinct:{event:1}},{$limit:5,$aggregate:"event"});
         })
         $("body").on("click","#recordtimenow",function(){
           var date=new Date();
@@ -92,12 +93,19 @@
           $('#recordtimeday').val(date.getDate());
           collection.save();
         })
-        var events=collection.find({},{limit:5});
+        var events=collection.find({$distinct:{event:1}},{$limit:5,$aggregate:"event"});
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
           }
-          collection.find({$distinct:{val:1}},{limit:5});
+          $('.recordeventrecentevents').remove();
+          for(var i=0;i<events.length;i++){
+            $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
+          }
+        })
+        $("body").on("change","#recordeventrecent",function(){
+          var event=$('recordeventrecent').val();
+          $('#recordeventinput').val(event);
         })
         $("body").on("click","#recordtype",function(){
           if($("#recordtype").val()=="text"){
