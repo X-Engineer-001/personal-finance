@@ -126,13 +126,16 @@
           }
         }
         $("body").on("click","#recordeventrecent",function(){
+          console.log('click');
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
+            console.log('remove');
           }
           var selected=$('#recordeventrecent').val();
           $('.recordeventrecentevents').remove();
           for(var i=0;i<events.length;i++){
             $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
+            console.log('append');
           }
           $('#recordeventrecent').val(selected);
         })
