@@ -92,10 +92,12 @@
           $('#recordtimeday').val(date.getDate());
           collection.save();
         })
+        var events=collection.find({},{limit:5});
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
           }
+          
         })
         $("body").on("click","#recordtype",function(){
           if($("#recordtype").val()=="text"){
