@@ -97,7 +97,7 @@
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
           }
-          collection.find({},{$orderBy:{time:-1},limit:$("#recent").val()});
+          collection.find({$distinct:{val:1}},{limit:5});
         })
         $("body").on("click","#recordtype",function(){
           if($("#recordtype").val()=="text"){
