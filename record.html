@@ -98,10 +98,12 @@
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
           }
+          var selected=$('#recordeventrecent').val();
           $('.recordeventrecentevents').remove();
           for(var i=0;i<events.length;i++){
             $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
           }
+          $('#recordeventrecent').val(selected);
         })
         $("body").on("change","#recordeventrecent",function(){
           var event=$('#recordeventrecent').val();
