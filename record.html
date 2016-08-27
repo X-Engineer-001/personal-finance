@@ -14,7 +14,7 @@
     <br>
     <input type='text' class='form-control' id='recordeventinput'></input>
     <select id='recordeventrecent'>
-      <option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>
+      <option value='text' id='recordeventrecenttext' selected style='display:none'>選擇最近的事項</option>
     </select>
     <br>
     <br>
@@ -101,7 +101,7 @@
             }
           }
           $('#recordeventrecent *').remove();
-          $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>");
+          $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected style='display:none'>選擇最近的事項</option>");
           for(var i=0;i<events.length;i++){
             $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
           }
@@ -131,11 +131,6 @@
         for(var i=0;i<events.length;i++){
           $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
         }
-        $("body").on("click","#recordeventrecent",function(){
-          if($("#recordeventrecent").val()=="text"){
-            $("#recordeventrecenttext").remove();
-          }
-        })
         $("body").on("change","#recordeventrecent",function(){
           var event=$('#recordeventrecent').val();
           $('#recordeventinput').val(event);
