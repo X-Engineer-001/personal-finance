@@ -76,7 +76,7 @@
           }
           var days=$('#recordtimeday').val();
           var times=years*365+(years-years%4000)/4000*969+(years%4000-years%400)/400*97+(years%400-years%100)/100*24+(years%100-years%4)/4+monthsdays+days/1;
-          collection.insert({event:$('#recordeventinput').val(),year:years,month:months,day:days,type:$('#recordtype').val(),money:$('#recordmoney').val(),time:times});
+          collection.insert({event:$('#recordeventinput').val(),year:years,month:months,day:days,type:$('#recordtype').val(),money:$('#recordmoney').val(),time:times,timestamp:new Date()});
           $('#recordeventinput').val('');
           $('#recordtimeyear').val('');
           $('#recordtimemonth').val('');
@@ -84,8 +84,7 @@
           $('#recordtype').val('');
           $('#recordmoney').val('');
           collection.save();
-          events=collection.find({$distinct:{event:1}},{$limit:5,$aggregate:"event"});
-          events.reverse();
+          events=collection.find({$distinct:{event:1}},{$orderBy:{timestamp:-1},$limit:5,$aggregate:"event"});
           $('#recordeventrecent *').remove();
             $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>");
         })
@@ -95,8 +94,7 @@
           $('#recordtimemonth').val(date.getMonth()+1);
           $('#recordtimeday').val(date.getDate());
         })
-        var events=collection.find({$distinct:{event:1}},{$limit:5,$aggregate:"event"});
-        events.reverse();
+        var events=collection.find({$distinct:{event:1}},{$orderBy:{timestamp:-1},$limit:5,$aggregate:"event"});
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
