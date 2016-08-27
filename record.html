@@ -86,7 +86,7 @@
           collection.save();
           result=collection.find({},{$orderBy:{timestamp:-1},$aggregate:"event"});
           events=[];
-          for(var i=result.length-1;i>-1;i--){
+          for(var i=0;i<result.length;i++){
             var flag=false;
             for(var j=0;j<events.length;j++){
               if(result[i]==events[j]){
@@ -111,7 +111,7 @@
         })
         var result=collection.find({},{$orderBy:{timestamp:-1},$aggregate:"event"});
         var events=[];
-        for(var i=result.length-1;i>-1;i--){
+        for(var i=0;i<result.length;i++){
           var flag=false;
           for(var j=0;j<events.length;j++){
             if(result[i]==events[j]){
