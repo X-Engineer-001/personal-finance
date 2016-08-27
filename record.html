@@ -84,9 +84,24 @@
           $('#recordtype').val('');
           $('#recordmoney').val('');
           collection.save();
-          events=collection.find({$distinct:{event:1}},{$orderBy:{timestamp:-1},$limit:5,$aggregate:"event"});
+          result=collection.find({},{$orderBy:{timestamp:-1},$aggregate:"event"});
+          events=[];
+          for(var i=result.length-1;i>-1;i--){
+            var flag=false;
+            for(var j=0;j<events.length;j++){
+              if(result[i]==event[j]){
+                flag=true;
+              }
+            }
+            if(!flag){
+              events.push(result[i]);
+            }
+            if(events.length>4){
+              break;
+            }
+          }
           $('#recordeventrecent *').remove();
-            $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>");
+          $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>");
         })
         $("body").on("click","#recordtimenow",function(){
           var date=new Date();
@@ -94,7 +109,22 @@
           $('#recordtimemonth').val(date.getMonth()+1);
           $('#recordtimeday').val(date.getDate());
         })
-        var events=collection.find({$distinct:{event:1}},{$orderBy:{timestamp:-1},$limit:5,$aggregate:"event"});
+        var result=collection.find({},{$orderBy:{timestamp:-1},$aggregate:"event"});
+        var events=[];
+        for(var i=result.length-1;i>-1;i--){
+          var flag=false;
+          for(var j=0;j<events.length;j++){
+            if(result[i]==event[j]){
+              flag=true;
+            }
+          }
+          if(!flag){
+            events.push(result[i]);
+          }
+          if(events.length>4){
+            break;
+          }
+        }
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
