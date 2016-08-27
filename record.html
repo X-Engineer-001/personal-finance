@@ -102,6 +102,9 @@
           }
           $('#recordeventrecent *').remove();
           $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected>選擇最近的事項</option>");
+          for(var i=0;i<events.length;i++){
+            $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
+          }
         })
         $("body").on("click","#recordtimenow",function(){
           var date=new Date();
@@ -125,18 +128,13 @@
             break;
           }
         }
+        for(var i=0;i<events.length;i++){
+          $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
+        }
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").val()=="text"){
             $("#recordeventrecenttext").remove();
-            console.log('remove');
           }
-          var selected=$('#recordeventrecent').val();
-          $('.recordeventrecentevents').remove();
-          for(var i=0;i<events.length;i++){
-            $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
-            console.log(events[i]);
-          }
-          $('#recordeventrecent').val(selected);
         })
         $("body").on("change","#recordeventrecent",function(){
           var event=$('#recordeventrecent').val();
