@@ -25,13 +25,13 @@ p{
 select{
   background-color:#4AE83F;
 }
-select:focus{
+select:hover{
   background-color:#B0FFA0;
 }
 a{
   background-color:#4AE83F;
 }
-a:focus{
+a:hover{
   background-color:#B0FFA0;
   color:#000000;
 }
@@ -50,9 +50,12 @@ input{
 input:focus{
   background-color:#B0FFA0 !important;
 }
+input:hover{
+  background-color:#B0FFA0 !important;
+}
 button{
   background-color:#4AE83F;
 }
-button:focus{
+button:hover{
   background-color:#B0FFA0;
 }
