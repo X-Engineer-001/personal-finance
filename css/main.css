@@ -39,7 +39,7 @@ option{
 /*  background-color:#B0FFA0;*/
 /*}*/
 a{
-  background-color:#4AE83F;
+  background-color:#35C98E;
   color:#000000;
 }
 a:active{
@@ -58,7 +58,7 @@ input:focus{
 /*  background-color:#B0FFA0 !important;*/
 /*}*/
 button{
-  background-color:#4AE83F;
+  background-color:#35C98E;
 }
 button:active{
   background-color:#B0FFA0;
