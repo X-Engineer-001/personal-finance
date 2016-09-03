@@ -151,6 +151,16 @@
             $("#recordeventrecent").css("background-color","#4AE83F");
           }
         })
+        $("body").on("blur","#recordtype",function(){
+          $("#recordtype").css("background-color","#4AE83F");
+        })
+        $("body").on("click","#recordtype",function(){
+          if($("#recordtype").css("background-color")=="rgb(74, 232, 63)"){
+            $("#recordtype").css("background-color","#B0FFA0");
+          }else{
+            $("#recordtype").css("background-color","#4AE83F");
+          }
+        })
       });
     </script>
   </body>
