@@ -30,7 +30,18 @@ p{
   color:#FFFFFF;
 }
 select{
-  background-color:#4AE83F !important;
+  background-color:#4AE83F;
+}
+#recordeventrecent{
+  width:100%;
+  height:34px;
+  padding:6px 12px;
+  font-size:14px;
+  line-height:1.42857143;
+  border-radius:4px;
+}
+#recent{
+  border-radius:3px;
 }
 option{
   background-color:#B0FFA0;
