@@ -1,9 +1,9 @@
 *{
   border-width:0px !important;
-  outline-width:0px !important;
+  outline:0 !important;
 }
 :focus {
-  outline-width:0px !important;
+  outline:0 !important;
 }
 .deepblue{
   color:#3E4BA6;
