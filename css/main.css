@@ -25,14 +25,14 @@ p{
 select{
   background-color:#4AE83F;
 }
-select:hover{
-  background-color:#B0FFA0;
-}
+/*select:hover{*/
+/*  background-color:#B0FFA0;*/
+/*}*/
 a{
   background-color:#4AE83F;
   color:#000000;
 }
-a:hover{
+a:active{
   background-color:#B0FFA0;
 }
 table{
@@ -50,9 +50,9 @@ input{
 input:focus{
   background-color:#B0FFA0 !important;
 }
-input:hover{
-  background-color:#B0FFA0 !important;
-}
+/*input:hover{*/
+/*  background-color:#B0FFA0 !important;*/
+/*}*/
 button{
   background-color:#4AE83F;
 }
