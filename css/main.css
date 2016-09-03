@@ -17,20 +17,41 @@ body{
   background-color:#000000;
 }
 span{
-  background-color:#4AE83F;
+  color:#FFFFFF;
+}
+p{
+  color:#FFFFFF;
 }
 select{
   background-color:#4AE83F;
 }
+select:focus{
+  background-color:#B0FFA0;
+}
 a{
   background-color:#4AE83F;
+}
+a:focus{
+  background-color:#B0FFA0;
 }
 table{
   background-color:#4AE83F;
 }
+td{
+  border-width:0px !important;
+}
+th{
+  border-width:0px !important;
+}
 input{
-  background-color:#4AE83F;
+  background-color:#4AE83F !important;
+}
+input:focus{
+  background-color:#B0FFA0 !important;
 }
 button{
   background-color:#4AE83F;
+}
+button:focus{
+  background-color:#B0FFA0;
 }
