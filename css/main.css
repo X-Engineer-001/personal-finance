@@ -25,7 +25,7 @@ p{
 select{
   background-color:#4AE83F;
 }
-select:active{
+select:focus{
   background-color:#B0FFA0;
 }
 a{
