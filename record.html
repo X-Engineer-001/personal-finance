@@ -14,7 +14,7 @@
     <br>
     <br>
     <input type='text' class='form-control' id='recordeventinput'></input>
-    <select class='form-control' id='recordeventrecent'>
+    <select id='recordeventrecent'>
       <option value='text' id='recordeventrecenttext' selected style='display:none'>選擇最近的事項</option>
     </select>
     <br>
@@ -146,9 +146,9 @@
         })
         $("body").on("click","#recordeventrecent",function(){
           if($("#recordeventrecent").css("background-color")=="rgb(74, 232, 63)"){
-            $("#recordeventrecent").css("background-color","#B0FFA0 !important");
+            $("#recordeventrecent").css("background-color","#B0FFA0");
           }else{
-            $("#recordeventrecent").css("background-color","#4AE83F !important");
+            $("#recordeventrecent").css("background-color","#4AE83F");
           }
         })
       });
