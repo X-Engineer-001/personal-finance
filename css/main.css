@@ -43,6 +43,9 @@ select{
 #recent{
   border-radius:3px;
 }
+#recordtype{
+  border-radius:3px;
+}
 option{
   background-color:#B0FFA0;
 }
