@@ -31,8 +31,6 @@ p{
 }
 select{
   background-color:#4AE83F;
-  -webkit-appearance:none;
-  -moz-appearance:none;
 }
 option{
   background-color:#B0FFA0;
