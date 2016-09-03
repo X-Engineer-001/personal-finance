@@ -25,6 +25,9 @@ p{
 select{
   background-color:#4AE83F;
 }
+option{
+  background-color:#B0FFA0;
+}
 /*select:hover{*/
 /*  background-color:#B0FFA0;*/
 /*}*/
