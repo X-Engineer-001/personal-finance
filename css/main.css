@@ -30,10 +30,10 @@ select:hover{
 }
 a{
   background-color:#4AE83F;
+  color:#000000;
 }
 a:hover{
   background-color:#B0FFA0;
-  color:#000000;
 }
 table{
   background-color:#4AE83F;
