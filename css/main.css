@@ -60,6 +60,6 @@ input:focus{
 button{
   background-color:#4AE83F;
 }
-button:hover{
+button:active{
   background-color:#B0FFA0;
 }
