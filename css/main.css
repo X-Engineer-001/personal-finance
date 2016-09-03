@@ -1,3 +1,10 @@
+*{
+  border-width:0px !important;
+  outline-width:0px !important;
+}
+:focus {
+  outline-width:0px !important;
+}
 .deepblue{
   color:#3E4BA6;
 }
@@ -40,12 +47,6 @@ a:active{
 }
 table{
   background-color:#4AE83F;
-}
-td{
-  border-width:0px !important;
-}
-th{
-  border-width:0px !important;
 }
 input{
   background-color:#4AE83F !important;
