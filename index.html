@@ -49,13 +49,13 @@
           $("tbody").append("<tr><td>"+array[i].type+"</td><td>"+array[i].event+"</td><td>"+array[i].year+"/"+array[i].month+"/"+array[i].day+"</td><td>"+array[i].money+"</td></tr>");
         }
       })
-      $("body").on("click","#recent",function(){
-        $("#recent").css("background-color","#B0FFA0");
-      })
       $("body").on("click",function(){
         if($("#recent").css("background-color")=="rgb(176, 255, 160)"){
           $("#recent").css("background-color","#4AE83F");
         }
+      })
+      $("body").on("click","#recent",function(){
+        $("#recent").css("background-color","#B0FFA0");
       })
     });
     </script>
