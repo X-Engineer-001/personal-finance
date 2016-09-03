@@ -30,7 +30,7 @@ p{
   color:#FFFFFF;
 }
 select{
-  background-color:#4AE83F;
+  background-color:#4AE83F !important;
 }
 option{
   background-color:#B0FFA0;
