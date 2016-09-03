@@ -26,7 +26,7 @@ select{
   background-color:#4AE83F;
 }
 select:hover{
-  background-color:#B0FFA0;
+  background-color:#B0FFA0 !important;
 }
 a{
   background-color:#4AE83F;
