@@ -1,0 +1,14 @@
+<widget xmlns="http://www.w3.org/ns/widgets"
+  xmlns:gap="http://phonegap.com/ns/1.0"
+  id="com.X-Engineer-001.PersonalFinance"
+  versionCode="10"
+  version="1.0.0" >
+  <name>PersonalFinance</name>
+  <description>
+    An tool for Managing personal finance.
+  </description>
+  <author href="https://build.phonegap.com" email="fabin1790@gmail.com">
+    X-Engineer-001
+  </author>
+  <icon src="icon.png" platform="android" width="180" height="180" />
+</widget>
