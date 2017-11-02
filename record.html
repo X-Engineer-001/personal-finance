@@ -61,7 +61,7 @@
             var years=$('#recordtimeyear').val();
             var months=$('#recordtimemonth').val();
             var leap=(years%4==0&&years%100!=0)||(years%400==0&&years%4000!=0);
-            var d = new RegExp("\d+");
+            var d = /\d+/;
           if(d.test($('#recordmoney').val())&&$('#recordtype').val()!="text"&&d.test($('#recordtimeyear').val())&&(((new RegExp("[13578]").test($('#recordtimemonth').val())||new RegExp("[1][02]").test($('#recordtimemonth').val()))&&d.test($('#recordtimeday').val())&&$('#recordtimeday').val()<=31)||((new RegExp("[469]").test($('#recordtimemonth').val())||$('#recordtimemonth').val()=="11")&&d.test($('#recordtimeday').val())&&$('#recordtimeday').val()<=30)||($('#recordtimemonth').val()=="2"&&((leap&&d.test($('#recordtimeday').val())&&$('#recordtimeday').val()<=29)||(!leap&&d.test($('#recordtimeday').val())&&$('#recordtimeday').val()<=28))))){
             var monthsdays;
             if(months==1){
