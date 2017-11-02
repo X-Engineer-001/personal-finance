@@ -46,6 +46,7 @@
     <br>
     <input type='text' style='width:95%;display:inline' class='form-control' id='recordmoney'></input><p style='width:5%;display:inline'>元</p>
     <br>
+    <p id="alert" display="none">表單格式不符</p>
     <br>
     <a class="btn btn-sm" href='index.html' style='width:49%;display:inline-block' id='recordbackbutton'>返回</a>
     <button type="button" class="btn btn-sm" style='width:49%;display:inline' id='recordcomplete'>確認</button>
@@ -56,55 +57,60 @@
       collection.load(function(){
         $("#recordeventrecenttext").append("");
         $("body").on("click","#recordcomplete",function(){
-          var years=$('#recordtimeyear').val();
-          var months=$('#recordtimemonth').val();
-          var monthsdays;
-          var leap=(years%4==0&&years%100!=0)||(years%400==0&&years%4000!=0);
-          if(months==1){
-            monthsdays=31;
-          }else if(months==2&&leap){
-            monthsdays=60;
-          }else if(months==2){
-            monthsdays=59;
-          }else if(months<=7&&leap){
-            monthsdays=60+(months-(months%2)-2)/2*61+(months%2)*31;
-          }else if(months<=7){
-            monthsdays=59+(months-(months%2)-2)/2*61+(months%2)*31;
-          }else if(leap){
-            monthsdays=213+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
-          }else{
-            monthsdays=212+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
-          }
-          var days=$('#recordtimeday').val();
-          var times=years*365+(years-years%4000)/4000*969+(years%4000-years%400)/400*97+(years%400-years%100)/100*24+(years%100-years%4)/4+monthsdays+days/1;
-          collection.insert({event:$('#recordeventinput').val(),year:years,month:months,day:days,type:$('#recordtype').val(),money:$('#recordmoney').val(),time:times,timestamp:new Date()/1});
-          $('#recordeventinput').val('');
-          $('#recordtimeyear').val('');
-          $('#recordtimemonth').val('');
-          $('#recordtimeday').val('');
-          $('#recordtype').val('');
-          $('#recordmoney').val('');
-          collection.save();
-          result=collection.find({},{$orderBy:{timestamp:-1},$aggregate:"event"});
-          events=[];
-          for(var i=0;i<result.length;i++){
-            var flag=false;
-            for(var j=0;j<events.length;j++){
-              if(result[i]==events[j]){
-                flag=true;
+            var years=$('#recordtimeyear').val();
+            var months=$('#recordtimemonth').val();
+            var leap=(years%4==0&&years%100!=0)||(years%400==0&&years%4000!=0);
+          if($('#recordmoney').val()==/\d+/&&$('#recordtype').val()!="text"&&$('#recordtimeyear').val()==/\d+/&&((($('#recordtimemonth').val()==/[13578]/||$('#recordtimemonth').val()==/[1][02]/)&&$('#recordtimeday').val()==/\d+/&&$('#recordtimeday').val()<=31)||(($('#recordtimemonth').val()==/[469]/||$('#recordtimemonth').val()=="11")&&$('#recordtimeday').val()==/\d+/&&$('#recordtimeday').val()<=30)||($('#recordtimemonth').val()=="2"&&((leap&&$('#recordtimeday').val()==/\d+/&&$('#recordtimeday').val()<=29)||(!leap&&$('#recordtimeday').val()==/\d+/&&$('#recordtimeday').val()<=28))))){
+            var monthsdays;
+            if(months==1){
+              monthsdays=31;
+            }else if(months==2&&leap){
+              monthsdays=60;
+            }else if(months==2){
+              monthsdays=59;
+            }else if(months<=7&&leap){
+              monthsdays=60+(months-(months%2)-2)/2*61+(months%2)*31;
+            }else if(months<=7){
+              monthsdays=59+(months-(months%2)-2)/2*61+(months%2)*31;
+            }else if(leap){
+              monthsdays=213+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
+            }else{
+              monthsdays=212+(months-((months-1)%2)-7)/2*61+((months-1)%2)*31;
+            }
+            var days=$('#recordtimeday').val();
+            var times=years*365+(years-years%4000)/4000*969+(years%4000-years%400)/400*97+(years%400-years%100)/100*24+(years%100-years%4)/4+monthsdays+days/1;
+            collection.insert({event:$('#recordeventinput').val(),year:years,month:months,day:days,type:$('#recordtype').val(),money:$('#recordmoney').val(),time:times,timestamp:new Date()/1});
+            $('#recordeventinput').val('');
+            $('#recordtimeyear').val('');
+            $('#recordtimemonth').val('');
+            $('#recordtimeday').val('');
+            $('#recordtype').val('');
+            $('#recordmoney').val('');
+            collection.save();
+            result=collection.find({},{$orderBy:{timestamp:-1},$aggregate:"event"});
+            events=[];
+            for(var i=0;i<result.length;i++){
+              var flag=false;
+              for(var j=0;j<events.length;j++){
+                if(result[i]==events[j]){
+                  flag=true;
+                }
+              }
+              if(!flag){
+                events.push(result[i]);
+              }
+              if(events.length>4){
+                break;
               }
             }
-            if(!flag){
-              events.push(result[i]);
+            $('#recordeventrecent *').remove();
+            $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected style='display:none'>選擇最近的事項</option>");
+            for(var i=0;i<events.length;i++){
+              $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
             }
-            if(events.length>4){
-              break;
-            }
-          }
-          $('#recordeventrecent *').remove();
-          $('#recordeventrecent').append("<option value='text' id='recordeventrecenttext' selected style='display:none'>選擇最近的事項</option>");
-          for(var i=0;i<events.length;i++){
-            $('#recordeventrecent').append("<option value="+events[i]+" class='recordeventrecentevents'>"+events[i]+"</option>");
+            $("#alert").css("display","none");
+          }else{
+            $("#alert").css("display","inline-block");
           }
         })
         $("body").on("click","#recordtimenow",function(){
